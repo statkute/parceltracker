@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		992BE6602497FBF40049574B /* Courier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992BE65F2497FBF40049574B /* Courier.swift */; };
+		992BE6622497FE510049574B /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992BE6612497FE510049574B /* Data.swift */; };
+		992BE666249800A70049574B /* mockCourierData.json in Resources */ = {isa = PBXBuildFile; fileRef = 992BE665249800A70049574B /* mockCourierData.json */; };
+		992BE66C2498036C0049574B /* ups_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 992BE6672498036C0049574B /* ups_logo.jpg */; };
+		992BE66D2498036C0049574B /* yodel_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 992BE6682498036C0049574B /* yodel_logo.jpg */; };
+		992BE66E2498036C0049574B /* hermes_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 992BE6692498036C0049574B /* hermes_logo.jpg */; };
+		992BE66F2498036C0049574B /* royalMail_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 992BE66A2498036C0049574B /* royalMail_logo.jpg */; };
+		992BE6702498036C0049574B /* dhl_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 992BE66B2498036C0049574B /* dhl_logo.jpg */; };
+		992BE6742498042D0049574B /* CourierRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992BE6732498042D0049574B /* CourierRow.swift */; };
+		992BE676249804C80049574B /* CourierList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992BE675249804C80049574B /* CourierList.swift */; };
+		992BE67824980FC50049574B /* CourierSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992BE67724980FC50049574B /* CourierSelect.swift */; };
 		9938703D24963528004ABAF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9938703C24963528004ABAF0 /* AppDelegate.swift */; };
 		9938703F24963528004ABAF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9938703E24963528004ABAF0 /* SceneDelegate.swift */; };
 		9938704124963528004ABAF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9938704024963528004ABAF0 /* ContentView.swift */; };
@@ -16,6 +27,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		992BE65F2497FBF40049574B /* Courier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Courier.swift; sourceTree = "<group>"; };
+		992BE6612497FE510049574B /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		992BE665249800A70049574B /* mockCourierData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockCourierData.json; sourceTree = "<group>"; };
+		992BE6672498036C0049574B /* ups_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ups_logo.jpg; sourceTree = "<group>"; };
+		992BE6682498036C0049574B /* yodel_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yodel_logo.jpg; sourceTree = "<group>"; };
+		992BE6692498036C0049574B /* hermes_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hermes_logo.jpg; sourceTree = "<group>"; };
+		992BE66A2498036C0049574B /* royalMail_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = royalMail_logo.jpg; sourceTree = "<group>"; };
+		992BE66B2498036C0049574B /* dhl_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dhl_logo.jpg; sourceTree = "<group>"; };
+		992BE6732498042D0049574B /* CourierRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourierRow.swift; sourceTree = "<group>"; };
+		992BE675249804C80049574B /* CourierList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourierList.swift; sourceTree = "<group>"; };
+		992BE67724980FC50049574B /* CourierSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourierSelect.swift; sourceTree = "<group>"; };
 		9938703924963528004ABAF0 /* parceltracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = parceltracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9938703C24963528004ABAF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9938703E24963528004ABAF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +59,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		992BE65D2497FB250049574B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				992BE65F2497FBF40049574B /* Courier.swift */,
+				992BE6612497FE510049574B /* Data.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		992BE65E2497FB5F0049574B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				992BE66B2498036C0049574B /* dhl_logo.jpg */,
+				992BE6692498036C0049574B /* hermes_logo.jpg */,
+				992BE66A2498036C0049574B /* royalMail_logo.jpg */,
+				992BE6672498036C0049574B /* ups_logo.jpg */,
+				992BE6682498036C0049574B /* yodel_logo.jpg */,
+				992BE665249800A70049574B /* mockCourierData.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		992BE671249804050049574B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				992BE6722498040E0049574B /* Couriers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		992BE6722498040E0049574B /* Couriers */ = {
+			isa = PBXGroup;
+			children = (
+				992BE6732498042D0049574B /* CourierRow.swift */,
+				992BE675249804C80049574B /* CourierList.swift */,
+				992BE67724980FC50049574B /* CourierSelect.swift */,
+			);
+			path = Couriers;
+			sourceTree = "<group>";
+		};
 		9938703024963528004ABAF0 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +118,9 @@
 		9938703B24963528004ABAF0 /* parceltracker */ = {
 			isa = PBXGroup;
 			children = (
+				992BE671249804050049574B /* Views */,
+				992BE65E2497FB5F0049574B /* Resources */,
+				992BE65D2497FB250049574B /* Models */,
 				9938703C24963528004ABAF0 /* AppDelegate.swift */,
 				9938703E24963528004ABAF0 /* SceneDelegate.swift */,
 				9938704024963528004ABAF0 /* ContentView.swift */,
@@ -135,7 +200,13 @@
 			files = (
 				993870492496352B004ABAF0 /* LaunchScreen.storyboard in Resources */,
 				993870462496352B004ABAF0 /* Preview Assets.xcassets in Resources */,
+				992BE666249800A70049574B /* mockCourierData.json in Resources */,
+				992BE66F2498036C0049574B /* royalMail_logo.jpg in Resources */,
+				992BE6702498036C0049574B /* dhl_logo.jpg in Resources */,
+				992BE66D2498036C0049574B /* yodel_logo.jpg in Resources */,
 				993870432496352B004ABAF0 /* Assets.xcassets in Resources */,
+				992BE66C2498036C0049574B /* ups_logo.jpg in Resources */,
+				992BE66E2498036C0049574B /* hermes_logo.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,8 +218,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9938703D24963528004ABAF0 /* AppDelegate.swift in Sources */,
+				992BE6622497FE510049574B /* Data.swift in Sources */,
+				992BE6602497FBF40049574B /* Courier.swift in Sources */,
 				9938703F24963528004ABAF0 /* SceneDelegate.swift in Sources */,
+				992BE6742498042D0049574B /* CourierRow.swift in Sources */,
 				9938704124963528004ABAF0 /* ContentView.swift in Sources */,
+				992BE676249804C80049574B /* CourierList.swift in Sources */,
+				992BE67824980FC50049574B /* CourierSelect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
