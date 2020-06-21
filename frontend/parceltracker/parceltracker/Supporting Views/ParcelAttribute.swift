@@ -39,7 +39,7 @@ struct ParcelAttribute: View {
             TextField("\(attrName)..", text: $attrValue)
         }
         .padding()
-        .border(Color.gray, width: 1)
+        //.border(Color.gray, width: 1)
     }
 }
 
