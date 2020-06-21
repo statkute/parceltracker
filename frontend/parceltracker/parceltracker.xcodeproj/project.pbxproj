@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		95FD12C5249E9BA20055775C /* ParcelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FD12C4249E9BA20055775C /* ParcelConfig.swift */; };
-		95FD12C7249E9DBD0055775C /* ParcelAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FD12C6249E9DBD0055775C /* ParcelAttribute.swift */; };
+		95FD12C9249F93310055775C /* parcelOptions.json in Resources */ = {isa = PBXBuildFile; fileRef = 95FD12C8249F93310055775C /* parcelOptions.json */; };
+		95FD12D4249FAC920055775C /* ParcelAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FD12D3249FAC920055775C /* ParcelAttribute.swift */; };
+		95FD12D5249FAC920055775C /* ParcelConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FD12D2249FAC920055775C /* ParcelConfig.swift */; };
 		9938703D24963528004ABAF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9938703C24963528004ABAF0 /* AppDelegate.swift */; };
 		9938703F24963528004ABAF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9938703E24963528004ABAF0 /* SceneDelegate.swift */; };
 		9938704124963528004ABAF0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9938704024963528004ABAF0 /* ContentView.swift */; };
@@ -18,8 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		95FD12C4249E9BA20055775C /* ParcelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelConfig.swift; sourceTree = "<group>"; };
-		95FD12C6249E9DBD0055775C /* ParcelAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ParcelAttribute.swift; path = "Supporting Views/ParcelAttribute.swift"; sourceTree = "<group>"; };
+		95FD12C8249F93310055775C /* parcelOptions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = parcelOptions.json; path = ../../../../../Downloads/BuildingListsAndNavigation/Complete/Landmarks/Landmarks/Resources/parcelOptions.json; sourceTree = "<group>"; };
+		95FD12D2249FAC920055775C /* ParcelConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelConfig.swift; sourceTree = "<group>"; };
+		95FD12D3249FAC920055775C /* ParcelAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelAttribute.swift; sourceTree = "<group>"; };
 		9938703924963528004ABAF0 /* parceltracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = parceltracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9938703C24963528004ABAF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9938703E24963528004ABAF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,11 +43,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95FD12D6249FAD8D0055775C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				95FD12D7249FADBC0055775C /* Parcels */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		95FD12D7249FADBC0055775C /* Parcels */ = {
+			isa = PBXGroup;
+			children = (
+				95FD12D3249FAC920055775C /* ParcelAttribute.swift */,
+				95FD12D2249FAC920055775C /* ParcelConfig.swift */,
+			);
+			path = Parcels;
+			sourceTree = "<group>";
+		};
 		9938703024963528004ABAF0 = {
 			isa = PBXGroup;
 			children = (
 				9938703B24963528004ABAF0 /* parceltracker */,
 				9938703A24963528004ABAF0 /* Products */,
+				95FD12C8249F93310055775C /* parcelOptions.json */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +80,7 @@
 		9938703B24963528004ABAF0 /* parceltracker */ = {
 			isa = PBXGroup;
 			children = (
+				95FD12D6249FAD8D0055775C /* Views */,
 				9938703C24963528004ABAF0 /* AppDelegate.swift */,
 				9938703E24963528004ABAF0 /* SceneDelegate.swift */,
 				9938704024963528004ABAF0 /* ContentView.swift */,
@@ -67,8 +88,6 @@
 				993870472496352B004ABAF0 /* LaunchScreen.storyboard */,
 				9938704A2496352B004ABAF0 /* Info.plist */,
 				993870442496352B004ABAF0 /* Preview Content */,
-				95FD12C4249E9BA20055775C /* ParcelConfig.swift */,
-				95FD12C6249E9DBD0055775C /* ParcelAttribute.swift */,
 			);
 			path = parceltracker;
 			sourceTree = "<group>";
@@ -140,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				993870492496352B004ABAF0 /* LaunchScreen.storyboard in Resources */,
+				95FD12C9249F93310055775C /* parcelOptions.json in Resources */,
 				993870462496352B004ABAF0 /* Preview Assets.xcassets in Resources */,
 				993870432496352B004ABAF0 /* Assets.xcassets in Resources */,
 			);
@@ -153,10 +173,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9938703D24963528004ABAF0 /* AppDelegate.swift in Sources */,
-				95FD12C7249E9DBD0055775C /* ParcelAttribute.swift in Sources */,
 				9938703F24963528004ABAF0 /* SceneDelegate.swift in Sources */,
-				95FD12C5249E9BA20055775C /* ParcelConfig.swift in Sources */,
 				9938704124963528004ABAF0 /* ContentView.swift in Sources */,
+				95FD12D5249FAC920055775C /* ParcelConfig.swift in Sources */,
+				95FD12D4249FAC920055775C /* ParcelAttribute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
