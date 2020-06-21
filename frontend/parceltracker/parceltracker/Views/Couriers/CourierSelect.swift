@@ -22,4 +22,3 @@ struct CourierSelect_Previews: PreviewProvider {
         CourierSelect()
     }
 }
-
