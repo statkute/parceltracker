@@ -1,0 +1,13 @@
+name: parceltracker
+options:
+  bundleIdPrefix: com.bourn32
+targets:
+  Parceltracker:
+    type: application
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources: [parceltracker]
+    settings:
+      configs:
+        debug:
+        release:
