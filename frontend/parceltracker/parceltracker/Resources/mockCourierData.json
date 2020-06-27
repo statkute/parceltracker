@@ -1,0 +1,28 @@
+[
+    {
+        "name": "Royal Mail",
+        "id": 0,
+        "imageName": "royalMail_logo"
+    },
+    {
+        "name": "UPS",
+        "id": 1,
+        "imageName": "ups_logo"
+    },
+    {
+        "name": "Hermes",
+        "id": 2,
+        "imageName": "hermes_logo"
+    },
+    {
+        "name": "Yodel",
+        "id": 3,
+        "imageName": "yodel_logo"
+    },
+    {
+        "name": "DHL",
+        "id": 4,
+        "imageName": "dhl_logo"
+    }
+]
+

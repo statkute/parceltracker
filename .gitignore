@@ -2,10 +2,9 @@
 
 ## User settings
 frontend/parceltracker/xcuserdata/
+*.xcuserstate
 **/.DS_Store
-## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
-*.xcscmblueprint
-*.xccheckout
+## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9
 
 ## xcodeproj needs to be generated using https://github.com/yonaskolb/XcodeGen command 'xcodegen generate'
 *.xcodeproj/
