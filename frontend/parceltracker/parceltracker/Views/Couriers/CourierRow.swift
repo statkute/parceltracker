@@ -25,9 +25,9 @@ struct CourierRow: View {
         .onTapGesture {
             self.selectedCourier.courierId = self.courier.id;
             self.selectedCourier.courierName = self.courier.name;
-            self.mode.wrappedValue.dismiss();
+            self.mode.wrappedValue.dismiss();   // goes back to the previous view
             
-        } // goes back to the previous view
+        }
     }
 }
 
