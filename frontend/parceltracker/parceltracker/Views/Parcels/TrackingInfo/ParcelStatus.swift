@@ -12,11 +12,13 @@ struct ParcelStatus: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            if status.header != "" {
-                Text(status.header)
+            
+            OptionalView(self.status.header) { header in
+                Text(header)
                     .font(.system(size: 25))
                     .fontWeight(.semibold)
             }
+            
             Spacer()
             HStack {
                 Text(status.date)
@@ -31,14 +33,12 @@ struct ParcelStatus: View {
                 .font(.system(size: 14))
                 .fontWeight(.medium)
             
-            Text(
-                status.statusType == .signature ? "signature" :
-                status.statusType == .warehouse_scan ? "warehouse scan" :
-                status.statusType == .import_scan ? "import scan" :
-                ""
-            )
-            .font(.system(size: 14))
-            .fontWeight(.medium)
+            OptionalView(LocalizedStringKey(self.status.statusType.rawValue)) { status in
+                Text(status)
+                    .font(.system(size: 14))
+                    .fontWeight(.medium)
+            }
+
         }
         .padding()
         .frame(height: status.header != "" ? 100 : 70)
