@@ -13,16 +13,16 @@ struct ParcelConfig: View {
         case add, edit
     }
     var configView : configType
+    @ObservedObject var selectedCourier = SelectedCourier()
     
     var body: some View {
         VStack(spacing: 0) {
             
             NavigationView {
-                
                 VStack {
-                    ParcelAttribute(attrTitle: "Tracking Number", attrIcon: "square.and.pencil")
-                    ParcelAttribute(attrTitle: "Select a courier", attrIcon: "cube.box")
-                    ParcelAttribute(attrTitle: "Title", attrIcon: "tag")
+                    ParcelAttribute(selectedCourier: selectedCourier, attrTitle: "Tracking Number", attrIcon: "square.and.pencil")
+                    ParcelAttribute(selectedCourier: selectedCourier, attrTitle: "Select a courier", attrIcon: "cube.box", isCourierField: true)
+                    ParcelAttribute(selectedCourier: selectedCourier, attrTitle: "Title", attrIcon: "tag")
                     Spacer()
                 }
                 .navigationBarTitle(
@@ -39,6 +39,11 @@ struct ParcelConfig: View {
 
 struct ParcelConfig_Previews: PreviewProvider {
     static var previews: some View {
-        ParcelConfig(configView: ParcelConfig.configType.add)        
+        ParcelConfig(configView: ParcelConfig.configType.add)
     }
+}
+
+class SelectedCourier: ObservableObject{
+    @Published var courierId: Int = -1; // TODO will have to be overwritten for already added parcels (edit screen)
+    @Published var courierName: String = "";
 }
