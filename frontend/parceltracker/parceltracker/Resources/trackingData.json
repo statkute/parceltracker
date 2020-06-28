@@ -1,66 +1,84 @@
-[
-    {
+{
+    "id": 1,
+    "delivered": true,
+    "courier" : {
+        "name": "Royal Mail Ltd",
         "id": 1,
-        "header": "Delivered",
-        "date": "14.02.2019",
-        "time": "15:35",
-        "location": "Sheffield, UK",
-        "statusType": "signature"
+        "imageName": ""
     },
-    {
-        "id": 2,
-        "header": "Out For Delivery",
-        "date": "14.02.2019",
-        "time": "15:35",
-        "location": "Sheffield, UK",
-        "statusType": "none"
-    },
-    {
-        "id": 3,
-        "header": "In Transit",
-        "date": "14.02.2019",
-        "time": "15:35",
-        "location": "Sheffield, UK",
-        "statusType": "warehouse_scan"
-    },
-    {
-        "id": 4,
-        "header": "",
-        "date": "14.02.2019",
-        "time": "15:35",
-        "location": "Sheffield, UK",
-        "statusType": "warehouse_scan"
-    },
-    {
-        "id": 5,
-        "header": "",
-        "date": "14.02.2019",
-        "time": "15:35",
-        "location": "Sheffield, UK",
-        "statusType": "warehouse_scan"
-    },
-    {
-        "id": 6,
-        "header": "",
-        "date": "14.02.2019",
-        "time": "15:35",
-        "location": "Sheffield, UK",
-        "statusType": "warehouse_scan"
-    },
-    {
-        "id": 7,
-        "header": "",
-        "date": "14.02.2019",
-        "time": "15:35",
-        "location": "Sheffield, UK",
-        "statusType": "warehouse_scan"
-    },
-    {
-        "id": 8,
-        "header": "",
-        "date": "14.02.2019",
-        "time": "15:35",
-        "location": "Sheffield, UK",
-        "statusType": "warehouse_scan"
-    }
-]
+    "trackingNumber": "AA123456789GB",
+    "trackingInfo": [
+        {
+            "id": 1,
+            "header": "Delivered",
+            "date": "14.02.2019",
+            "time": "15:35",
+            "location": "Sheffield, UK",
+            "statusType": "signature"
+        },
+        {
+            "id": 2,
+            "header": "Out For Delivery",
+            "date": "14.02.2019",
+            "time": "15:35",
+            "location": "Sheffield, UK",
+            "statusType": "none"
+        },
+        {
+            "id": 3,
+            "header": "In Transit",
+            "date": "14.02.2019",
+            "time": "15:35",
+            "location": "Sheffield, UK",
+            "statusType": "warehouse_scan"
+        },
+        {
+            "id": 4,
+            "header": "",
+            "date": "14.02.2019",
+            "time": "15:35",
+            "location": "Sheffield, UK",
+            "statusType": "warehouse_scan"
+        },
+        {
+            "id": 5,
+            "header": "",
+            "date": "14.02.2019",
+            "time": "15:35",
+            "location": "Sheffield, UK",
+            "statusType": "warehouse_scan"
+        },
+        {
+            "id": 6,
+            "header": "",
+            "date": "14.02.2019",
+            "time": "15:35",
+            "location": "Sheffield, UK",
+            "statusType": "warehouse_scan"
+        },
+        {
+            "id": 7,
+            "header": "",
+            "date": "14.02.2019",
+            "time": "15:35",
+            "location": "Sheffield, UK",
+            "statusType": "warehouse_scan"
+        },
+        {
+            "id": 8,
+            "header": "",
+            "date": "14.02.2019",
+            "time": "15:35",
+            "location": "Sheffield, UK",
+            "statusType": "warehouse_scan"
+        },
+        {
+            "id": 9,
+            "header": "",
+            "date": "14.02.2019",
+            "time": "15:35",
+            "location": "Sheffield, UK",
+            "statusType": "warehouse_scan"
+        }
+    ]
+}
