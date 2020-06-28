@@ -19,9 +19,10 @@ struct TrackParcel: View {
     
     var body: some View {
         NavigationView {
+            
                 
-            ScrollView() {
-                GeometryReader { (stackProxy: GeometryProxy) in
+            GeometryReader { (stackProxy: GeometryProxy) in
+                
                 HStack {
                     Text(self.trackingInfo.courier.name)
                         .fontWeight(.light)
@@ -35,29 +36,33 @@ struct TrackParcel: View {
                         .padding(.top)
                 }
                 .frame(height: -30)
+                
+                ScrollView() {
                     VStack (spacing: 0) {
                         
                         GeometryReader { (symbolProxy: GeometryProxy) in
                             HStack {
-                                Image(systemName: "arrow.up.circle")
-                                    .frame(height: 23)
-                                    .offset(x: symbolProxy.size.width/60)
-                                    .font(Font.system(size: 22,weight: .semibold))
+                                
                                 Image(systemName: self.trackingInfo.delivered ? "cube.box" : "arrow.up.circle")
+                                    .frame(height: 26)
+                                    .offset(x: symbolProxy.size.width/59.5)
+                                    .font(Font.system(size: 22, weight: .semibold))
                                     .foregroundColor(self.trackingInfo.delivered ? .green : .black)
+                                
                             }
                         }
                         Spacer()
-                        ForEach(parcelLifespan) { update in
                         ForEach(self.trackingInfo.trackingInfo) { update in
                             ParcelStatus(status: update)
                                 //.listRowInsets(EdgeInsets())
                                 .padding(.leading)
-                                .border(width: 2.3, edge: .leading, color: .black)
+                                .border(width: 2.3, edge: .leading,
                                         color: (self.trackingInfo.delivered ? .green : .black))
                         }
                     }
                 }
+                .padding(.top, 40)
+                .padding(.bottom, 40)
             }
             .frame(alignment: .topLeading)
             .padding()
@@ -69,7 +74,6 @@ struct TrackParcel: View {
 
 struct TrackParcel_Previews: PreviewProvider {
     static var previews: some View {
-        TrackParcel(name: "Books from Ebay")
         TrackParcel(tracking: trackingInfo, name: "Books from Ebay")
     }
 }
