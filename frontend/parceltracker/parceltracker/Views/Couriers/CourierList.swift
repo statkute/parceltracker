@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CourierList: View {
+    @ObservedObject var selectedCourier: SelectedCourier
     @State private var searchText = ""
     @State private var showCancelButton: Bool = false
     var sortedCouriers = courierData.sorted(by: { $0.name < $1.name })
@@ -52,16 +53,17 @@ struct CourierList: View {
             List {
                 // the foreach below uses alphabetically sorted list of couriers
                 ForEach(sortedCouriers.filter{$0.name.hasPrefix(searchText) || searchText == ""}) { courier in // TODO might want to do all lowercase comparison
-                    CourierRow(courier: courier)
+                    CourierRow(selectedCourier: self.selectedCourier, courier: courier)
                 }
             }
         }
+        .navigationBarTitle(Text("Select a courier"))
     }
 }
 
 struct CourierList_Previews: PreviewProvider {
     static var previews: some View {
-        CourierList()
+        CourierList(selectedCourier: SelectedCourier())
     }
 }
 
