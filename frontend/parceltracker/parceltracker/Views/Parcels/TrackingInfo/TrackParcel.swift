@@ -17,26 +17,32 @@ struct TrackParcel: View {
     
     var body: some View {
         NavigationView {
-            
+                
             ScrollView() {
-                VStack (spacing: 0) {
-                    
-                    Image(systemName: "arrow.up.circle")
-                        .frame(height: 17)
-                        .offset(x: -160, y: 3.4)
-                        .font(Font.system(size: 23, weight: .semibold))
-                    
-                    ForEach(parcelLifespan) { update in
-                        ParcelStatus(status: update)
-                            //.listRowInsets(EdgeInsets())
-                            .padding(.leading)
-                            .border(width: 2.3, edge: .leading, color: .black)
+                GeometryReader { (stackProxy: GeometryProxy) in
+                    VStack (spacing: 0) {
+                        
+                        GeometryReader { (symbolProxy: GeometryProxy) in
+                            HStack {
+                                Image(systemName: "arrow.up.circle")
+                                    .frame(height: 23)
+                                    .offset(x: symbolProxy.size.width/60)
+                                    .font(Font.system(size: 22,weight: .semibold))
+                            }
+                        }
+                        Spacer()
+                        ForEach(parcelLifespan) { update in
+                            ParcelStatus(status: update)
+                                //.listRowInsets(EdgeInsets())
+                                .padding(.leading)
+                                .border(width: 2.3, edge: .leading, color: .black)
+                        }
                     }
                 }
             }
-            .frame(height: 550, alignment: .topLeading)
-            .padding(35)
-            
+            .frame(alignment: .topLeading)
+            .padding()
+        
             .navigationBarTitle(parcelName)
         }
     }

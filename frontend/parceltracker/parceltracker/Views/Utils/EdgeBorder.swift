@@ -51,7 +51,7 @@ extension View {
         ZStack {
             self
             EdgeBorder(width: width, edge: edge).foregroundColor(color)
-                .padding(.leading, 11)
+                .padding(.leading)
         }
     }
 }
