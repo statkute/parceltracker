@@ -12,6 +12,7 @@ import UIKit
 import SwiftUI
 
 let courierData: [Courier] = load("mockCourierData.json")
+let parcelLifespan: [Status] = load("trackingData.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
