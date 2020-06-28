@@ -30,17 +30,24 @@ struct ParcelStatus: View {
             Text(status.location)
                 .font(.system(size: 14))
                 .fontWeight(.medium)
+            
             Text(
-                status.statusType == .signature ? "Signature" :
-                status.statusType == .warehouse_scan ? "Warehouse Scan" :
-                status.statusType == .import_scan ? "Import Scan" :
+                status.statusType == .signature ? "signature" :
+                status.statusType == .warehouse_scan ? "warehouse scan" :
+                status.statusType == .import_scan ? "import scan" :
                 ""
             )
             .font(.system(size: 14))
             .fontWeight(.medium)
-            
         }
         .padding()
         .frame(height: status.header != "" ? 100 : 70)
+    }
+}
+
+
+struct ParcelStatus_Previews: PreviewProvider {
+    static var previews: some View {
+        ParcelStatus(status: Status(id: 1, header: "Title", date: "date", time: "time", location: "location", statusType: .signature))
     }
 }
