@@ -12,12 +12,11 @@ struct Status: Hashable, Codable, Identifiable {
     var date : String
     var time : String
     var location : String
-    var statusType : StatusType
+    var statusType : StatusType?
     
     enum StatusType : String, CaseIterable, Codable, Hashable {
-        case signature = "signature"
-        case import_scan = "import_scan"
-        case warehouse_scan = "warehouse_scan"
-        case none = "none"
+        case signature = "Signature"
+        case import_scan = "Import Scan"
+        case warehouse_scan = "Warehouse Scan"
     }
 }

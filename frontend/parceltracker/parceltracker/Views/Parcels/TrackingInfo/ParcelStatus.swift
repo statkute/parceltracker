@@ -33,9 +33,9 @@ struct ParcelStatus: View {
                 .font(.system(size: 14))
                 .fontWeight(.medium)
             
-            OptionalView(LocalizedStringKey(self.status.statusType.rawValue)) { status in
-                Text(status)
-                    .font(.system(size: 14))
+            OptionalView(self.status.statusType) { status in
+                Text(status.rawValue)
+                    .font(.system(size: SubHeadingSize))
                     .fontWeight(.medium)
             }
 
