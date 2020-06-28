@@ -22,7 +22,12 @@ struct CourierRow: View {
             }
         }
         .contentShape(Rectangle())  // ensures that Spacer() area is also clickeable as it isn't by default
-            .onTapGesture {self.selectedCourier.courierId = self.courier.id; self.selectedCourier.courierName = self.courier.name; self.mode.wrappedValue.dismiss();} // goes back to the previous view
+        .onTapGesture {
+            self.selectedCourier.courierId = self.courier.id;
+            self.selectedCourier.courierName = self.courier.name;
+            self.mode.wrappedValue.dismiss();
+            
+        } // goes back to the previous view
     }
 }
 
