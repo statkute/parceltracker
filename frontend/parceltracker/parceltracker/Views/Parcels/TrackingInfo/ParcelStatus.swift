@@ -15,22 +15,22 @@ struct ParcelStatus: View {
             
             OptionalView(self.status.header) { header in
                 Text(header)
-                    .font(.system(size: 25))
+                    .font(.system(size: HeadingSize))
                     .fontWeight(.semibold)
             }
             
             Spacer()
             HStack {
                 Text(status.date)
-                    .font(.system(size: 14))
+                    .font(.system(size: SubHeadingSize))
                     .fontWeight(.medium)
                 Spacer()
                 Text(status.time)
-                    .font(.system(size: 14))
+                    .font(.system(size: SubHeadingSize))
                     .fontWeight(.medium)
             }
             Text(status.location)
-                .font(.system(size: 14))
+                .font(.system(size: SubHeadingSize))
                 .fontWeight(.medium)
             
             OptionalView(self.status.statusType) { status in

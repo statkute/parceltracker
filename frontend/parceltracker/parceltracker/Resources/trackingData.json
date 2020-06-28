@@ -21,7 +21,7 @@
             "header": "Out For Delivery",
             "date": "14.02.2019",
             "time": "15:35",
-            "location": "Sheffield, UK",
+            "location": "Sheffield, UK"
         },
         {
             "id": 3,
@@ -33,7 +33,6 @@
         },
         {
             "id": 4,
-            "header": "",
             "date": "14.02.2019",
             "time": "15:35",
             "location": "Sheffield, UK",
@@ -41,7 +40,6 @@
         },
         {
             "id": 5,
-            "header": "",
             "date": "14.02.2019",
             "time": "15:35",
             "location": "Sheffield, UK",
@@ -49,7 +47,6 @@
         },
         {
             "id": 6,
-            "header": "",
             "date": "14.02.2019",
             "time": "15:35",
             "location": "Sheffield, UK",
@@ -57,7 +54,6 @@
         },
         {
             "id": 7,
-            "header": "",
             "date": "14.02.2019",
             "time": "15:35",
             "location": "Sheffield, UK",
@@ -65,7 +61,6 @@
         },
         {
             "id": 8,
-            "header": "",
             "date": "14.02.2019",
             "time": "15:35",
             "location": "Sheffield, UK",
@@ -73,7 +68,6 @@
         },
         {
             "id": 9,
-            "header": "",
             "date": "14.02.2019",
             "time": "15:35",
             "location": "Sheffield, UK",

@@ -43,10 +43,10 @@ struct TrackParcel: View {
                         GeometryReader { (symbolProxy: GeometryProxy) in
                             HStack {
                                 
-                                Image(systemName: self.trackingInfo.delivered ? "cube.box" : "arrow.up.circle")
+                                Image(systemName: self.trackingInfo.delivered ? DeliveredIcon : PendingDeliveredIcon)
                                     .frame(height: 26)
                                     .offset(x: symbolProxy.size.width/59.5)
-                                    .font(Font.system(size: 22, weight: .semibold))
+                                    .font(Font.system(size: IconSize, weight: .semibold))
                                     .foregroundColor(self.trackingInfo.delivered ? .green : .black)
                                 
                             }
@@ -56,7 +56,7 @@ struct TrackParcel: View {
                             ParcelStatus(status: update)
                                 //.listRowInsets(EdgeInsets())
                                 .padding(.leading)
-                                .border(width: 2.3, edge: .leading,
+                                .border(width: TrackBarWidth, edge: .leading,
                                         color: (self.trackingInfo.delivered ? .green : .black))
                         }
                     }
