@@ -38,8 +38,5 @@ struct ParcelConfig: View {
 }
 
 struct ParcelConfig_Previews: PreviewProvider {
-    static var previews: some View {
-        ParcelConfig(configView: ParcelConfig.configType.add)
-        .previewDevice(PreviewDevice(rawValue: "iPhone XS Max"))
-    }
+    ParcelConfig(configView: ParcelConfig.configType.add)
 }

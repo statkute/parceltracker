@@ -38,10 +38,6 @@ struct TrackParcel: View {
 
 struct TrackParcel_Previews: PreviewProvider {
     static var previews: some View {
-        ForEach(["iPhone XS Max"], id: \.self) { deviceName in
-            TrackParcel(name: "Books from Ebay")
-                .previewDevice(PreviewDevice(rawValue: deviceName))
-                .previewDisplayName(deviceName)
-        }
+        TrackParcel(name: "Books from Ebay")
     }
 }
