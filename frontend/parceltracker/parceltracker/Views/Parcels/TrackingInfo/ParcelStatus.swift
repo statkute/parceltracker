@@ -41,7 +41,7 @@ struct ParcelStatus: View {
 
         }
         .padding()
-        .frame(height: status.header != "" ? 100 : 70)
+        .frame(height: status.header != nil ? 100 : 70)
     }
 }
 
