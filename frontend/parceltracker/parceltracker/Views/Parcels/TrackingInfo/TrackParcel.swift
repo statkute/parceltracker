@@ -18,16 +18,22 @@ struct TrackParcel: View {
     var body: some View {
         NavigationView {
             
-            ScrollView {
-                Image(systemName: "arrow.up.circle")
-                    .frame(width: 1, height: 1)
-                
-                ForEach(parcelLifespan) { update in
-                    ParcelStatus(status: update)
-                        .listRowInsets(EdgeInsets())
+            ScrollView() {
+                VStack (spacing: 0) {
+                    
+                    Image(systemName: "arrow.up.circle")
+                        .frame(height: 17)
+                        .offset(x: -160, y: 3.4)
+                        .font(Font.system(size: 23, weight: .semibold))
+                    
+                    ForEach(parcelLifespan) { update in
+                        ParcelStatus(status: update)
+                            //.listRowInsets(EdgeInsets())
+                            .padding(.leading)
+                            .border(width: 2.3, edge: .leading, color: .black)
+                    }
                 }
             }
-            .border(width: 3, edge: .leading, color: .black)
             .frame(height: 550, alignment: .topLeading)
             .padding(35)
             
