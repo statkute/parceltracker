@@ -9,39 +9,39 @@ import SwiftUI
 
 struct TrackParcel: View {
     var parcelName : String
-    
+
     init(name : String) {
         parcelName = name
         UITableView.appearance().separatorColor = .clear
     }
     
     var body: some View {
-        Text("Hello World")
-        /*
-         
         NavigationView {
-        
-            List(parcelLifespan) { statusUpdate in
+            
+            ScrollView {
                 Image(systemName: "arrow.up.circle")
                     .frame(width: 1, height: 1)
-                    .font(.system(size: 21))
                 
-                ParcelStatus(status: statusUpdate)
-                
-                
+                ForEach(parcelLifespan) { update in
+                    ParcelStatus(status: update)
+                        .listRowInsets(EdgeInsets())
+                }
             }
-            .border(width: 2, edge: .leading, color: .black)
-            .padding()
+            .border(width: 3, edge: .leading, color: .black)
+            .frame(height: 550, alignment: .topLeading)
+            .padding(35)
             
             .navigationBarTitle(parcelName)
-            
         }
-         */
     }
 }
 
 struct TrackParcel_Previews: PreviewProvider {
     static var previews: some View {
-        TrackParcel(name: "Books from Ebay")
+        ForEach(["iPhone XS Max"], id: \.self) { deviceName in
+            TrackParcel(name: "Books from Ebay")
+                .previewDevice(PreviewDevice(rawValue: deviceName))
+                .previewDisplayName(deviceName)
+        }
     }
 }
