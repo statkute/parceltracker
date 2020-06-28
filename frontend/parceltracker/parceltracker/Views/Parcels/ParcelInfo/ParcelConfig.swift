@@ -38,5 +38,7 @@ struct ParcelConfig: View {
 }
 
 struct ParcelConfig_Previews: PreviewProvider {
-    ParcelConfig(configView: ParcelConfig.configType.add)
+    static var previews: some View {
+        ParcelConfig(configView: ParcelConfig.configType.add)        
+    }
 }
