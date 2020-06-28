@@ -19,14 +19,17 @@ struct TrackParcel: View {
     
     var body: some View {
         NavigationView {
-            
-                
+            // GeometryReader:
+            // Used to get the width of the most outer view, from within a child view.
+            // This is used to generate the dynamic offset for the icon and sub headers.
             GeometryReader { (stackProxy: GeometryProxy) in
                 
                 HStack {
                     Text(self.trackingInfo.courier.name)
                         .fontWeight(.light)
                         .foregroundColor(.secondary)
+                        // use width of device screen to space courier name below Nav title
+                        // found basically using trial and error and it works ¯\_(ツ)_/¯
                         .padding(.leading, stackProxy.size.width/100)
                         .padding(.top)
                     Spacer()
@@ -45,24 +48,27 @@ struct TrackParcel: View {
                                 
                                 Image(systemName: self.trackingInfo.delivered ? DeliveredIcon : PendingDeliveredIcon)
                                     .frame(height: 26)
+                                    // use width of scroll bar to place icon at the end of the left border
+                                    // found basically using trial and error and it works ¯\_(ツ)_/¯
+                                    // But since it uses the width of the parent view, this is pretty robust for all devices.
                                     .offset(x: symbolProxy.size.width/59.5)
                                     .font(Font.system(size: IconSize, weight: .semibold))
                                     .foregroundColor(self.trackingInfo.delivered ? .green : .black)
-                                
                             }
                         }
+                        
                         Spacer()
+                        
                         ForEach(self.trackingInfo.trackingInfo) { update in
                             ParcelStatus(status: update)
-                                //.listRowInsets(EdgeInsets())
                                 .padding(.leading)
                                 .border(width: TrackBarWidth, edge: .leading,
                                         color: (self.trackingInfo.delivered ? .green : .black))
                         }
                     }
                 }
-                .padding(.top, 40)
-                .padding(.bottom, 40)
+                .padding(.top, 40) // padding at the top of the scroll view
+                .padding(.bottom, 40) // padding at the bottom of the scroll view
             }
             .frame(alignment: .topLeading)
             .padding()
