@@ -22,8 +22,19 @@ struct TrackParcel: View {
                 
             ScrollView() {
                 GeometryReader { (stackProxy: GeometryProxy) in
+                HStack {
                     Text(self.trackingInfo.courier.name)
+                        .fontWeight(.light)
+                        .foregroundColor(.secondary)
+                        .padding(.leading, stackProxy.size.width/100)
+                        .padding(.top)
+                    Spacer()
                     Text(self.trackingInfo.trackingNumber)
+                        .fontWeight(.light)
+                        .foregroundColor(.secondary)
+                        .padding(.top)
+                }
+                .frame(height: -30)
                     VStack (spacing: 0) {
                         
                         GeometryReader { (symbolProxy: GeometryProxy) in
