@@ -11,6 +11,7 @@ import CoreLocation
 import UIKit
 import SwiftUI
 
+let trackingInfo: TrackingInfo = load("trackingData.json")
 let courierData: [Courier] = load("mockCourierData.json")
 
 func load<T: Decodable>(_ filename: String) -> T {

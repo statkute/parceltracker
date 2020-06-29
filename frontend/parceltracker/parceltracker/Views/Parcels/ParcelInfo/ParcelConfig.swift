@@ -9,10 +9,12 @@
 import SwiftUI
 
 struct ParcelConfig: View {
+    var configView : configType
+    
     enum configType {
         case add, edit
     }
-    var configView : configType
+    
     @ObservedObject var selectedCourier = SelectedCourier()
     
     var body: some View {
@@ -20,9 +22,9 @@ struct ParcelConfig: View {
             
             NavigationView {
                 VStack {
-                    ParcelAttribute(selectedCourier: selectedCourier, attrTitle: "Tracking Number", attrIcon: "square.and.pencil")
-                    ParcelAttribute(selectedCourier: selectedCourier, attrTitle: "Select a courier", attrIcon: "cube.box", isCourierField: true)
-                    ParcelAttribute(selectedCourier: selectedCourier, attrTitle: "Title", attrIcon: "tag")
+                    ParcelAttribute(selectedCourier: selectedCourier, attrTitle: "Tracking Number", attrIcon: EditIcon)
+                    ParcelAttribute(selectedCourier: selectedCourier, attrTitle: "Select a courier", attrIcon: DeliveredIcon, isCourierField: true)
+                    ParcelAttribute(selectedCourier: selectedCourier, attrTitle: "Title", attrIcon: TagIcon)
                     Spacer()
                 }
                 .navigationBarTitle(

@@ -36,7 +36,6 @@ struct ParcelAttribute: View {
             Divider()
             
         }
-        //.border(Color.gray, width: 1)
     }
 }
 
