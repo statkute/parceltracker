@@ -9,9 +9,9 @@
 struct Status: Hashable, Codable, Identifiable {
     var id: Int
     var header : String?
-    var date : String
-    var time : String
-    var location : String
+    var date : String?
+    var time : String?
+    var location : String?
     var statusType : StatusType?
     
     enum StatusType : String, CaseIterable, Codable, Hashable {

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ParcelStatus: View {
     var status : Status
+    let heightWithHeader = CGFloat(100)
+    let heightWithoutHeader = CGFloat(70)
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -20,18 +22,25 @@ struct ParcelStatus: View {
             }
             
             Spacer()
+            
             HStack {
-                Text(status.date)
-                    .font(.system(size: SubHeadingSize))
-                    .fontWeight(.medium)
+                OptionalView(self.status.date) { date in
+                    Text(date)
+                        .font(.system(size: SubHeadingSize))
+                        .fontWeight(.medium)
+                }
                 Spacer()
-                Text(status.time)
+                OptionalView(self.status.time) { time in
+                    Text(time)
+                        .font(.system(size: SubHeadingSize))
+                        .fontWeight(.medium)
+                }
+            }
+            OptionalView(self.status.location) { location in
+                Text(location)
                     .font(.system(size: SubHeadingSize))
                     .fontWeight(.medium)
             }
-            Text(status.location)
-                .font(.system(size: SubHeadingSize))
-                .fontWeight(.medium)
             
             OptionalView(self.status.statusType) { status in
                 Text(status.rawValue)
@@ -41,7 +50,7 @@ struct ParcelStatus: View {
 
         }
         .padding()
-        .frame(height: status.header != nil ? 100 : 70)
+        .frame(height: status.header == nil ? heightWithoutHeader : heightWithHeader)
     }
 }
 
