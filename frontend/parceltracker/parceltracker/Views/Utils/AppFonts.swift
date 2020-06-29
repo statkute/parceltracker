@@ -14,3 +14,6 @@ let TrackBarWidth = CGFloat(2.3)
 
 let DeliveredIcon = "cube.box"
 let PendingDeliveredIcon = "arrow.up.circle"
+
+let EditIcon = "square.and.pencil"
+let TagIcon = "tag"
