@@ -6,6 +6,12 @@
 //
 import SwiftUI
 
+// Helper view to work with optional variables/views.
+// USAGE:
+// OptionalView(<OPTIONAL VARIABLE>) { 
+//     <OPTIONAL VIEW>
+// }
+
 struct OptionalView<Value, Content>: View where Content: View {
     var content: (Value) -> Content
     var value: Value
