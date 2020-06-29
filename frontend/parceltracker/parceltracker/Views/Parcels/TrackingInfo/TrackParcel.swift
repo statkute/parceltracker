@@ -38,16 +38,16 @@ struct TrackParcel: View {
                         .foregroundColor(.secondary)
                         .padding(.top)
                 }
-                .frame(height: -30)
+                .frame(height: -30) // negative height to space the subheading below the heading
                 
                 ScrollView() {
-                    VStack (spacing: 0) {
+                    VStack (spacing: 0) { // spacing: 0 ensures no spacing between vertical items
                         
                         GeometryReader { (symbolProxy: GeometryProxy) in
                             HStack {
                                 
                                 Image(systemName: self.trackingInfo.delivered ? DeliveredIcon : PendingDeliveredIcon)
-                                    .frame(height: 26)
+                                    .padding(.top, 5) // padding to ensure icon fits into view
                                     // use width of scroll bar to place icon at the end of the left border
                                     // found basically using trial and error and it works ¯\_(ツ)_/¯
                                     // But since it uses the width of the parent view, this is pretty robust for all devices.
@@ -70,7 +70,6 @@ struct TrackParcel: View {
                 .padding(.top, 40) // padding at the top of the scroll view
                 .padding(.bottom, 40) // padding at the bottom of the scroll view
             }
-            .frame(alignment: .topLeading)
             .padding()
         
             .navigationBarTitle(parcelName)
