@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ParcelList: View {
+    @ObservedObject var selectedParcelFilter: SelectedParcelFilter
     @State private var searchText = ""
     @State private var showCancelButton: Bool = false
     var parcels = parcelData
@@ -48,10 +49,11 @@ struct ParcelList: View {
             .padding(.horizontal)
             .navigationBarHidden(showCancelButton) // .animation(.default) // animation does not work properly
             
+            
             // Courier List
             List {
                 // the foreach below uses alphabetically sorted list of couriers
-                ForEach(parcelData.filter{$0.label.hasPrefix(searchText) || searchText == ""}) { parcel in // TODO might want to do all lowercase comparison
+                ForEach(parcelData.filter{($0.label.hasPrefix(searchText) || searchText == "") && ($0.statusFilter == selectedParcelFilter.filter)}) { parcel in // TODO might want to do all lowercase comparison
                     ParcelRow(parcelName: parcel.label, courierName: findCourierById(courierId: parcel.courierId)!.name)
                 }
             }
@@ -61,6 +63,6 @@ struct ParcelList: View {
 
 struct ParcelList_Previews: PreviewProvider {
     static var previews: some View {
-        ParcelList()
+        ParcelList(selectedParcelFilter: SelectedParcelFilter())
     }
 }

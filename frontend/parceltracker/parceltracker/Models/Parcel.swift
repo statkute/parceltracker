@@ -13,4 +13,15 @@ struct Parcel: Hashable, Codable, Identifiable {
     var label: String
     var trackingNumber: String
     var courierId: Int
+    var statusFilter: ParcelFilter
+
+    enum StatusFilter : String, CaseIterable, Codable, Hashable {
+        case Upcoming = "Upcoming"
+        case Past = "Past"
+    }
+}
+
+enum ParcelFilter: String, CaseIterable, Codable, Hashable{
+    case Upcoming = "Upcoming"
+    case Past = "Past"
 }

@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct ParcelsHomeTab: View {
+    @ObservedObject var selectedParcelFilter = SelectedParcelFilter()
+
     var body: some View {
-        NavigationView{
-            ParcelList()
-            .navigationBarTitle(Text("Your Parcels"))
-            .navigationBarItems(trailing: Button(action: {}) {
-                Image(systemName: "plus").foregroundColor(.accentColor).imageScale(.large)
-            })
-        }.buttonStyle(PlainButtonStyle())
+        GeometryReader { geometry in
+            NavigationView{
+                ParcelList(selectedParcelFilter: self.selectedParcelFilter)
+                .navigationBarTitle(Text("Your Parcels"))
+                .navigationBarItems(trailing:
+                    HStack {
+                        ParcelListFilter(selectedParcelFilter: self.selectedParcelFilter).padding(.trailing, (geometry.size.width / 2.0) - (102.5 + 47.5))
+                        Spacer()
+                        Button(action: {}) {
+                            Image(systemName: "plus").foregroundColor(.accentColor).imageScale(.large)
+                        }
+                    }
+                )
+            }.buttonStyle(PlainButtonStyle())
+        }
     }
 }
 
@@ -23,4 +33,8 @@ struct ParcelsHomeTab_Previews: PreviewProvider {
     static var previews: some View {
         ParcelsHomeTab()
     }
+}
+
+class SelectedParcelFilter: ObservableObject{
+    @Published var filter: ParcelFilter = ParcelFilter.Upcoming;
 }
