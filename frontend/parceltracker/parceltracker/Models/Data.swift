@@ -11,6 +11,7 @@ import CoreLocation
 import UIKit
 import SwiftUI
 
+let trackingInfo: TrackingInfo = load("trackingData.json")
 let courierData: [Courier] = load("mockCourierData.json")
 let parcelData: [Parcel] = load("mockParcelData.json")
 

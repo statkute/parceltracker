@@ -9,10 +9,12 @@
 import SwiftUI
 
 struct ParcelConfig: View {
+    var configView : configType
+    
     enum configType {
         case add, edit
     }
-    var configView : configType
+    
     @ObservedObject var selectedCourier = SelectedCourier()
     
     var body: some View {
