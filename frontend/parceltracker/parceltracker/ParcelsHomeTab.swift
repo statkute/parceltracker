@@ -17,7 +17,8 @@ struct ParcelsHomeTab: View {
                 .navigationBarTitle(Text("Your Parcels"))
                 .navigationBarItems(trailing:
                     HStack {
-                        ParcelListFilter(selectedParcelFilter: self.selectedParcelFilter).padding(.trailing, (geometry.size.width / 2.0) - (102.5 + 45))
+                        ParcelListFilter(selectedParcelFilter: self.selectedParcelFilter)
+                            .padding(.trailing, (geometry.size.width / 2.0) - (102.5 + 45))
                         Spacer()
                         Button(action: {}) {
                             Image(systemName: "plus").foregroundColor(.accentColor).imageScale(.large)
@@ -37,6 +38,6 @@ struct ParcelsHomeTab_Previews: PreviewProvider {
 }
 
 class SelectedParcelFilter: ObservableObject{
-    @Published var filter: ParcelFilter = ParcelFilter.Past
+    @Published var filter: ParcelFilter = ParcelFilter.Upcoming
     ;
 }

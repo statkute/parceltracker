@@ -7,6 +7,20 @@
 
 import SwiftUI
 
+
+var filterScopeWidth = CGFloat(210.0)
+var filterScopeHeight = CGFloat(35.0)
+var filterScopeCapsuleDarkModeOpacity = 0.9
+var filterScopeCapsuleLightModeOpacity = 0.3
+var filterScopeButtonWidth = CGFloat(100.0)
+var filterScopeButtonHeight = CGFloat(30.0)
+var filterScopeButtonSidePadding = (filterScopeHeight - filterScopeButtonHeight) / CGFloat(2.0)
+var filterScopeCapsuleRadius = CGFloat(1.0)
+var filterScopeButtonDarkModeOpacity = 0.2
+var filterScopeButtonLightModeOpacity = 0.8
+var filterScopeButtonInvisibleOpacity = 0.0
+
+
 struct ParcelListFilter: View {
     @ObservedObject var selectedParcelFilter: SelectedParcelFilter
     @State var filter : Bool = true
@@ -15,23 +29,23 @@ struct ParcelListFilter: View {
     var body: some View {
         ZStack {
             Capsule()
-                .frame(width: 210, height: 35)
-                .cornerRadius(/*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
-                .foregroundColor(Color(colorScheme == .dark ? UIColor.secondarySystemBackground : UIColor.secondaryLabel)).opacity(colorScheme == .dark ? 0.9 : 0.3)
+                .frame(width: filterScopeWidth, height: filterScopeHeight)
+                .cornerRadius(filterScopeCapsuleRadius)
+                .foregroundColor(Color(colorScheme == .dark ? UIColor.secondarySystemBackground : UIColor.secondaryLabel)).opacity(colorScheme == .dark ? filterScopeCapsuleDarkModeOpacity : filterScopeCapsuleLightModeOpacity)
             
             HStack {
-                FilterScope(selectedParcelFilter: selectedParcelFilter, filterName: "Upcoming", activeOnUpcomingFilterValue: ParcelFilter.Upcoming)
-                FilterScope(selectedParcelFilter: selectedParcelFilter, filterName: "Past", activeOnUpcomingFilterValue: ParcelFilter.Past)
+                FilterScope(selectedParcelFilter: selectedParcelFilter, filterName: ParcelFilter.Upcoming.rawValue, activeOnUpcomingFilterValue: ParcelFilter.Upcoming)
+                FilterScope(selectedParcelFilter: selectedParcelFilter, filterName: ParcelFilter.Past.rawValue, activeOnUpcomingFilterValue: ParcelFilter.Past)
             }
         }
-        .frame(width: 210.0, height: 35.0)
+        .frame(width: filterScopeWidth, height: filterScopeHeight)
     }
 }
 
 struct ScopeFilter_Previews: PreviewProvider {
     static var previews: some View {
         ParcelListFilter(selectedParcelFilter: SelectedParcelFilter())
-            .environment(\.colorScheme, .light)
+            .environment(\.colorScheme, .dark)
     }
 }
 
@@ -43,15 +57,15 @@ struct FilterScope: View {
     var body: some View {
         ZStack {
             Capsule()
-                .frame(width: 100, height: 30)
-                .foregroundColor(Color(UIColor.white).opacity(self.activeOnUpcomingFilterValue == self.selectedParcelFilter.filter ? (colorScheme == .dark ? 0.2 : 0.8) : 0))
-                .cornerRadius(1.0)
+                .frame(width: filterScopeButtonWidth, height: filterScopeButtonHeight)
+                .foregroundColor(Color(UIColor.white).opacity(self.activeOnUpcomingFilterValue == self.selectedParcelFilter.filter ? (colorScheme == .dark ? filterScopeButtonDarkModeOpacity : filterScopeButtonLightModeOpacity) : filterScopeButtonInvisibleOpacity))
+                .cornerRadius(filterScopeCapsuleRadius)
             
             Text(self.filterName)
                 .font(.footnote)
         }
-        .padding(self.selectedParcelFilter.filter == ParcelFilter.Upcoming ? .leading : .trailing, 2.5)
-        .frame(width: 100.0, height: 30.0)
+        .padding(self.selectedParcelFilter.filter == ParcelFilter.Upcoming ? .leading : .trailing, filterScopeButtonSidePadding)
+        .frame(width: filterScopeButtonWidth, height: filterScopeButtonHeight)
         .onTapGesture {
             if(self.activeOnUpcomingFilterValue != self.selectedParcelFilter.filter){
                 switch self.selectedParcelFilter.filter {

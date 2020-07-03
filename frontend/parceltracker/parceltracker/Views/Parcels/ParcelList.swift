@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct ParcelList: View {
     @ObservedObject var selectedParcelFilter: SelectedParcelFilter
     @State private var searchText = ""
@@ -22,8 +23,6 @@ struct ParcelList: View {
 
                     TextField("search", text: $searchText, onEditingChanged: { isEditing in
                         self.showCancelButton = true
-                    }, onCommit: {
-                        print("onCommit")
                     }).foregroundColor(.primary)
 
                     Button(action: {
@@ -47,13 +46,12 @@ struct ParcelList: View {
                 }
             }
             .padding(.horizontal)
-            .navigationBarHidden(showCancelButton) // .animation(.default) // animation does not work properly
+            .navigationBarHidden(showCancelButton)
             
             
-            // Courier List
+            // Parcel List
             List {
-                // the foreach below uses alphabetically sorted list of couriers
-                ForEach(parcelData.filter{($0.label.hasPrefix(searchText) || searchText == "") && ($0.statusFilter == selectedParcelFilter.filter)}) { parcel in // TODO might want to do all lowercase comparison
+                ForEach(parcelData.filter{($0.label.lowercased().hasPrefix(searchText.lowercased()) || searchText == "") && ($0.statusFilter == selectedParcelFilter.filter)}) { parcel in
                     ParcelRow(parcelName: parcel.label, courierName: findCourierById(courierId: parcel.courierId)!.name)
                 }
             }
