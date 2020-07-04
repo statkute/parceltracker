@@ -22,8 +22,6 @@ struct CourierList: View {
 
                     TextField("search", text: $searchText, onEditingChanged: { isEditing in
                         self.showCancelButton = true
-                    }, onCommit: {
-                        print("onCommit")
                     }).foregroundColor(.primary)
 
                     Button(action: {
@@ -52,7 +50,7 @@ struct CourierList: View {
             // Courier List
             List {
                 // the foreach below uses alphabetically sorted list of couriers
-                ForEach(sortedCouriers.filter{$0.name.hasPrefix(searchText) || searchText == ""}) { courier in // TODO might want to do all lowercase comparison
+                ForEach(sortedCouriers.filter{$0.name.lowercased().hasPrefix(searchText.lowercased()) || searchText == ""}) { courier in
                     CourierRow(selectedCourier: self.selectedCourier, courier: courier)
                 }
             }

@@ -18,23 +18,19 @@ struct ParcelConfig: View {
     @ObservedObject var selectedCourier = SelectedCourier()
     
     var body: some View {
-        VStack(spacing: 0) {
-            
-            NavigationView {
-                VStack {
-                    ParcelAttribute(selectedCourier: selectedCourier, attrTitle: "Tracking Number", attrIcon: EditIcon)
-                    ParcelAttribute(selectedCourier: selectedCourier, attrTitle: "Select a courier", attrIcon: DeliveredIcon, isCourierField: true)
-                    ParcelAttribute(selectedCourier: selectedCourier, attrTitle: "Title", attrIcon: TagIcon)
-                    Spacer()
-                }
-                .navigationBarTitle(
-                    configView == .add ? Text("Add a parcel") : Text("Edit parcel")
-                )
-                .navigationBarItems(trailing: Button(action: {}) {
-                    configView == .add ? Text("Add") : Text("Save")
-                })
-                
+        NavigationView { // TODO remove when inside other parent navigation view
+            VStack {
+                ParcelAttribute(selectedCourier: selectedCourier, attrTitle: "Tracking Number", attrIcon: "square.and.pencil")
+                ParcelAttribute(selectedCourier: selectedCourier, attrTitle: "Select a courier", attrIcon: "cube.box", isCourierField: true)
+                ParcelAttribute(selectedCourier: selectedCourier, attrTitle: "Title", attrIcon: "tag")
+                Spacer()
             }
+            .navigationBarTitle(
+                configView == .add ? Text("Add a parcel") : Text("Edit parcel")
+            )
+            .navigationBarItems(trailing: Button(action: {}) {
+                configView == .add ? Text("Add") : Text("Save")
+            })
         }
     }
 }

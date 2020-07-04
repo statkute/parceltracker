@@ -13,6 +13,7 @@ import SwiftUI
 
 let trackingInfo: TrackingInfo = load("trackingData.json")
 let courierData: [Courier] = load("mockCourierData.json")
+let parcelData: [Parcel] = load("mockParcelData.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
@@ -67,4 +68,16 @@ final class ImageStore {
         images[name] = ImageStore.loadImage(name: name)
         return images.index(forKey: name)!
     }
+}
+
+func findCourierById(courierId searchId: Int) -> Courier?
+{
+    for (_, value) in courierData.enumerated()
+    {
+        if value.id == searchId {
+            return value
+        }
+    }
+
+    return nil
 }
