@@ -18,7 +18,6 @@ struct TrackParcel: View {
     }
     
     var body: some View {
-        NavigationView {
             // GeometryReader:
             // Used to get the width of the most outer view, from within a child view.
             // This is used to generate the dynamic offset for the icon and sub headers.
@@ -45,9 +44,7 @@ struct TrackParcel: View {
                     .padding(.bottom, 40) // padding at the bottom of the scroll view
             }
             .padding()
-        
             .navigationBarTitle(parcelName)
-        }
     }
 }
 

@@ -10,6 +10,7 @@ import SwiftUI
 var infoButtonSystemName = "info.circle"
 
 struct ParcelRow: View {
+    @State var tag:Int? = nil
     var parcelName: String
     var courierName: String
     var body: some View {
@@ -29,10 +30,20 @@ struct ParcelRow: View {
             HStack {
                 Text("Arriving Today") // TODO should merge the parcel status (parcelview PR) and parcel objects to get this info
                     .foregroundColor(.secondary)
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {  // TODO add a link to the parcel view here
-                    Image(systemName: infoButtonSystemName)
+                
+                
+                ZStack {
+                    NavigationLink(destination: TrackParcel(tracking: trackingInfo, name: self.parcelName), tag: 1, selection: $tag){
+                        EmptyView()
+                    }.buttonStyle(PlainButtonStyle()).hidden().frame(width: 0)
+                        
+                    Button(action: {self.tag = 1}) {
+                        Image(systemName: infoButtonSystemName)
                         .imageScale(.large)
-                        .foregroundColor(.accentColor) // otherwise gets overwridden when inside a list
+                        .foregroundColor(.accentColor)  // otherwise gets overwridden when inside a list
+                    }
+                    
+                    
                 }
             }
         }
