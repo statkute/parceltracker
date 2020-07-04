@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+var plusButtonWidth = 45.0
+var parcelSliderFilterWidth = 205.0
+var filterCenterOffset = CGFloat((parcelSliderFilterWidth / 2.0) + plusButtonWidth)
+
 struct ParcelsHomeTab: View {
     @ObservedObject var selectedParcelFilter = SelectedParcelFilter()
 
@@ -18,7 +22,7 @@ struct ParcelsHomeTab: View {
                 .navigationBarItems(trailing:
                     HStack {
                         ParcelListFilter(selectedParcelFilter: self.selectedParcelFilter)
-                            .padding(.trailing, (geometry.size.width / 2.0) - (102.5 + 45))
+                            .padding(.trailing, (geometry.size.width / 2.0) - filterCenterOffset) // finds the center of the screen and offsets to center the fliter slider
                         Spacer()
                         Button(action: {}) {
                             Image(systemName: "plus").foregroundColor(.accentColor).imageScale(.large)
@@ -38,6 +42,5 @@ struct ParcelsHomeTab_Previews: PreviewProvider {
 }
 
 class SelectedParcelFilter: ObservableObject{
-    @Published var filter: ParcelFilter = ParcelFilter.Upcoming
-    ;
+    @Published var filter: ParcelFilter = ParcelFilter.Upcoming;
 }
