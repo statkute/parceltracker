@@ -52,7 +52,7 @@ struct ParcelList: View {
             // Parcel List
             List {
                 ForEach(parcelData.filter{($0.label.lowercased().hasPrefix(searchText.lowercased()) || searchText == "") && ($0.statusFilter == selectedParcelFilter.filter)}) { parcel in
-                    ParcelRow(parcelName: parcel.label, courierName: findCourierById(courierId: parcel.courierId)!.name)
+                    ParcelRow(parcel: parcel)
                 }
             }
         }

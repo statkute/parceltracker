@@ -11,17 +11,16 @@ var infoButtonSystemName = "info.circle"
 
 struct ParcelRow: View {
     @State var tag:Int? = nil
-    var parcelName: String
-    var courierName: String
+    var parcel: Parcel
     var body: some View {
         HStack {
             VStack {
                 HStack {
-                    Text(parcelName)
+                    Text(self.parcel.label)
                     Spacer()
                 }
                 HStack {
-                    Text(courierName)
+                    Text(courierData[self.parcel.trackingInfo.courierId].name)
                         .foregroundColor(.secondary)
                     Spacer()
                 }
@@ -33,7 +32,7 @@ struct ParcelRow: View {
                 
                 
                 ZStack {
-                    NavigationLink(destination: TrackParcel(tracking: trackingInfo, name: self.parcelName), tag: 1, selection: $tag){
+                    NavigationLink(destination: TrackParcel(parcel: self.parcel), tag: 1, selection: $tag){
                         EmptyView()
                     }.buttonStyle(PlainButtonStyle()).hidden().frame(width: 0)
                         
@@ -52,6 +51,6 @@ struct ParcelRow: View {
 
 struct ParcelRow_Previews: PreviewProvider {
     static var previews: some View {
-        ParcelRow(parcelName: "Books from ebay", courierName: "Royal Mail")
+        ParcelRow(parcel: parcelData[0])
     }
 }

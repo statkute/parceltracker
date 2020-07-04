@@ -11,8 +11,7 @@ import SwiftUI
 struct Parcel: Hashable, Codable, Identifiable {
     var id: Int
     var label: String
-    var trackingNumber: String
-    var courierId: Int
+    var trackingInfo: TrackingInfo
     var statusFilter: ParcelFilter
 }
 
