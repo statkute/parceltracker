@@ -30,7 +30,8 @@ struct ParcelRow: View {
                 Text("Arriving Today") // TODO should merge the parcel status (parcelview PR) and parcel objects to get this info
                     .foregroundColor(.secondary)
                 
-                
+                // A hack to get around the default navigationlink formatting inside a list (adds an arrow to the right)
+                // We create a Zstack with an invisible navigationlink to avoid auto formatting
                 ZStack {
                     NavigationLink(destination: TrackParcel(parcel: self.parcel), tag: 1, selection: $tag){
                         EmptyView()
