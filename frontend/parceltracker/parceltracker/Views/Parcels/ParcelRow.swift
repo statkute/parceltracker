@@ -10,17 +10,17 @@ import SwiftUI
 var infoButtonSystemName = "info.circle"
 
 struct ParcelRow: View {
-    var parcelName: String
-    var courierName: String
+    @State var tag:Int? = nil
+    var parcel: Parcel
     var body: some View {
         HStack {
             VStack {
                 HStack {
-                    Text(parcelName)
+                    Text(self.parcel.label)
                     Spacer()
                 }
                 HStack {
-                    Text(courierName)
+                    Text(courierData[self.parcel.trackingInfo.courierId].name)
                         .foregroundColor(.secondary)
                     Spacer()
                 }
@@ -29,10 +29,21 @@ struct ParcelRow: View {
             HStack {
                 Text("Arriving Today") // TODO should merge the parcel status (parcelview PR) and parcel objects to get this info
                     .foregroundColor(.secondary)
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {  // TODO add a link to the parcel view here
-                    Image(systemName: infoButtonSystemName)
+                
+                // A hack to get around the default navigationlink formatting inside a list (adds an arrow to the right)
+                // We create a Zstack with an invisible navigationlink to avoid auto formatting
+                ZStack {
+                    NavigationLink(destination: TrackParcel(parcel: self.parcel), tag: 1, selection: $tag){
+                        EmptyView()
+                    }.buttonStyle(PlainButtonStyle()).hidden().frame(width: 0)
+                        
+                    Button(action: {self.tag = 1}) {
+                        Image(systemName: infoButtonSystemName)
                         .imageScale(.large)
-                        .foregroundColor(.accentColor) // otherwise gets overwridden when inside a list
+                        .foregroundColor(.accentColor)  // otherwise gets overwridden when inside a list
+                    }
+                    
+                    
                 }
             }
         }
@@ -41,6 +52,6 @@ struct ParcelRow: View {
 
 struct ParcelRow_Previews: PreviewProvider {
     static var previews: some View {
-        ParcelRow(parcelName: "Books from ebay", courierName: "Royal Mail")
+        ParcelRow(parcel: parcelData[0])
     }
 }

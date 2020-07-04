@@ -8,24 +8,21 @@
 import SwiftUI
 
 struct TrackParcel: View {
-    var parcelName : String
-    var trackingInfo : TrackingInfo
+    var parcel: Parcel
 
-    init(tracking : TrackingInfo, name : String) {
-        trackingInfo = tracking
-        parcelName = name
-        UITableView.appearance().separatorColor = .clear
-    }
-    
+//    init(parcel : Parcel) {
+//        self.parcel = parcel
+//        UITableView.appearance().separatorColor = .clear
+//    }
+//    
     var body: some View {
-        NavigationView {
             // GeometryReader:
             // Used to get the width of the most outer view, from within a child view.
             // This is used to generate the dynamic offset for the icon and sub headers.
             GeometryReader { (stackProxy: GeometryProxy) in
                 
                 HStack {
-                    Text(self.trackingInfo.courier.name)
+                    Text(courierData[self.parcel.trackingInfo.courierId].name)
                         .fontWeight(.light)
                         .foregroundColor(.secondary)
                         // use width of device screen to space courier name below Nav title
@@ -33,26 +30,24 @@ struct TrackParcel: View {
                         .padding(.leading, stackProxy.size.width/100)
                         .padding(.top)
                     Spacer()
-                    Text(self.trackingInfo.trackingNumber)
+                    Text(self.parcel.trackingInfo.trackingNumber)
                         .fontWeight(.light)
                         .foregroundColor(.secondary)
                         .padding(.top)
                 }
                 .frame(height: -30) // negative height to space the subheading below the heading
                 
-                ParcelStatusList(delivered: self.trackingInfo.delivered, updateList: self.trackingInfo.trackingInfo)
+                ParcelStatusList(delivered: self.parcel.trackingInfo.delivered, updateList: self.parcel.trackingInfo.statusUpdates)
                     .padding(.top, 40) // padding at the top of the scroll view
                     .padding(.bottom, 40) // padding at the bottom of the scroll view
             }
             .padding()
-        
-            .navigationBarTitle(parcelName)
-        }
+            .navigationBarTitle(self.parcel.label)
     }
 }
 
 struct TrackParcel_Previews: PreviewProvider {
     static var previews: some View {
-        TrackParcel(tracking: trackingInfo, name: "Books from Ebay")
+        TrackParcel(parcel: parcelData[0])
     }
 }

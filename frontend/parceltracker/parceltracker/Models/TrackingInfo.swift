@@ -8,7 +8,7 @@
 struct TrackingInfo: Hashable, Codable, Identifiable {
     var id: Int
     var delivered: Bool
-    var courier: Courier
+    var courierId: Int
     var trackingNumber: String
-    var trackingInfo: [Status]
+    var statusUpdates: [Status]
 }

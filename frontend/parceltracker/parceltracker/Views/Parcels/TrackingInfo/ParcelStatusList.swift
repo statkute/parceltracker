@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ParcelStatusList: View {
+    @Environment(\.colorScheme) var colorScheme: ColorScheme
     var delivered : Bool
     var updateList : [Status]
     
@@ -23,7 +24,7 @@ struct ParcelStatusList: View {
                         // But since it uses the width of the parent view, this is pretty robust for all devices.
                         .offset(x: symbolProxy.size.width/59.5)
                         .font(Font.system(size: IconSize, weight: .semibold))
-                        .foregroundColor(self.delivered ? .green : .black)
+                        .foregroundColor(self.delivered ? .green : (self.colorScheme == .light ? .black : .white))
                 }
                 
                 Spacer()
@@ -32,10 +33,16 @@ struct ParcelStatusList: View {
                     ParcelStatus(status: update)
                         .padding(.leading)
                         .border(width: TrackBarWidth, edge: .leading,
-                                color: (self.delivered ? .green : .black))
+                                color: (self.delivered ? .green : (self.colorScheme == .light ? .black : .white)))
                 }
             }
         }
         
+    }
+}
+
+struct ParcelStatusList_Previews: PreviewProvider {
+    static var previews: some View {
+        ParcelStatusList(delivered: false, updateList: parcelData[0].trackingInfo.statusUpdates)
     }
 }
